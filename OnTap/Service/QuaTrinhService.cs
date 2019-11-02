@@ -56,7 +56,77 @@ namespace OnTap.Service
         {
             if (File.Exists(path))
             {
+                List<string> rs = new List<string>();
+                var lines = File.ReadAllLines(path);
+                foreach (var line in lines)
+                {
+                    var data = QuaTrinh.Parse(line);
+                    if (data.ID != quaTrinh.ID)
+                    {
+                        rs.Add(line);
+                    }
+                }
+                File.WriteAllLines(path, rs);
+            }
+            else
+            {
+                throw new Exception("File dữ liệu không tồn tại");
+            }
+        }
+        public static int GetIdMax(string path)
+        {
+            int c = 0;
+            var lines = File.ReadAllLines(path);
+            foreach (var line in lines)
+            {
+                var item = QuaTrinh.Parse(line);
+                if (int.Parse(item.ID) > c && item != null)
+                {
+                    c = int.Parse(item.ID);
+                }
+            }
+            return c;
+        }
+        /// <summary>
+        /// Thêm mới một quá trình học tập
+        /// </summary>
+        /// <param name="path">path</param>
+        /// <param name="quaTrinh">Quatrinh</param>
+        public static void Add(string path,QuaTrinh quaTrinh)
+        {
+            
+            if (File.Exists(path))
+            {
+               
+                var qt = QuaTrinh.Parse(quaTrinh);
+                File.AppendAllText(path, qt);
+            }
+            else
+            {
+                throw new Exception("File dữ liệu không tồn tại");
+            }
 
+        }
+
+        public static void Update(string path, QuaTrinh quaTrinh)
+        {
+            if (File.Exists(path))
+            {
+                List<string> rs = new List<string>();
+                var lines = File.ReadAllLines(path);
+                foreach (var line in lines)
+                {
+                    var item = QuaTrinh.Parse(line);
+                    if (item.ID == quaTrinh.ID)
+                    {
+                        rs.Add(quaTrinh.Parse());    
+                    }
+                    else
+                    {
+                        rs.Add(line);
+                    }   
+                }
+                File.WriteAllLines(path, rs);
             }
             else
             {

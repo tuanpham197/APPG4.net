@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnTap.Models
 {
-    class SinhVien
+    public class SinhVien
     {
         public String ID { get; set; }
         public String FirstName { get; set; }

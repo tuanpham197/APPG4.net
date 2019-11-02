@@ -19,9 +19,12 @@ namespace OnTap
         string anhDaiDienPathFile;
         string pathSinhVien;
         string pathQuaTrinh;
+        SinhVien sinhVien;
+        string idsv;
         public Form1(string idSinhVien)
         {
             InitializeComponent();
+            idsv = idSinhVien;
             anhDaiDienPathDirectory = Application.StartupPath + @"\AnhDaiDien";
             anhDaiDienPathFile = anhDaiDienPathDirectory + @"\avatar.jpg";
             pathSinhVien = Application.StartupPath + @"\Data\sinhvien.txt";
@@ -35,8 +38,13 @@ namespace OnTap
 
             //List<QuaTrinh> quaTrinhs = QuaTrinhService.getListQuaTrinh(idSinhVien);
             //SinhVien sinhVien = StudentService.getSinhVien("15t1021201");
-            SinhVien sinhVien = StudentService.getSinhVienToFile(pathSinhVien, "101");
-        
+            loadData();
+            
+        }
+        public void loadData()
+        {
+            sinhVien = StudentService.getSinhVienToFile(pathSinhVien, "101");
+
             txtMa.Text = sinhVien.ID;
             txtTen.Text = sinhVien.FullName;
             dtpNgaySinh.Value = sinhVien.DateOfBirth;
@@ -49,7 +57,6 @@ namespace OnTap
             bdsQuaTrinh.DataSource = sinhVien.quaTrinh;
 
             dgvQuaTrinh.DataSource = bdsQuaTrinh;
-            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -89,22 +96,36 @@ namespace OnTap
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            frmAddQuaTrinh f = new frmAddQuaTrinh();
-            f.ShowDialog();
+            frmAddQuaTrinh f = new frmAddQuaTrinh(null,sinhVien.ID);
+            f.ShowDialog(); 
+            loadData();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            var rs = MessageBox.Show("Bạn có muốn xóa không",
-                                        "Thông báo",
-                                        MessageBoxButtons.OKCancel,
-                                        MessageBoxIcon.Warning);
-            if (rs == DialogResult.OK)
+            var history = bdsQuaTrinh.Current as QuaTrinh;
+            if(history != null)
             {
-                
-
-                MessageBox.Show("Đã xóa thành công", "Thông báo");
+                var rs = MessageBox.Show("Bạn có muốn xóa không",
+                                       "Thông báo",
+                                       MessageBoxButtons.OKCancel,
+                                       MessageBoxIcon.Warning);
+                if (rs == DialogResult.OK)
+                {
+                    QuaTrinhService.Remove(pathQuaTrinh, history);
+                    bdsQuaTrinh.RemoveCurrent();
+                    MessageBox.Show("Đã xóa thành công", "Thông báo");
+                }
             }
+            loadData();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            var history = bdsQuaTrinh.Current as QuaTrinh;
+            frmAddQuaTrinh f = new frmAddQuaTrinh(history, sinhVien.ID);
+            f.ShowDialog();
+            loadData();
         }
     }
 }

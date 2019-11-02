@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnTap.Models
 {
-    class QuaTrinh
+    public class QuaTrinh
     {
         public string ID { get; set; }
         public int YearFrom { get; set; }
@@ -45,7 +45,7 @@ namespace OnTap.Models
 
         public string Parse()
         {
-            return string.Format("{0}#{1}#{2}#{3}#{4}\n", this.ID, this.YearFrom, this.YearTo, this.Address, this.idStudent);
+            return string.Format("{0}#{1}#{2}#{3}#{4}", this.ID, this.YearFrom, this.YearTo, this.Address, this.idStudent);
         }
     }
 }
