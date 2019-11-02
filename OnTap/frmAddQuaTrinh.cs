@@ -67,6 +67,11 @@ namespace OnTap
                 int from = int.Parse(nudFromYear.Value.ToString());
                 int to = int.Parse(nudToYear.Value.ToString());
                 string school = txtAddress.Text;
+                /*
+                 Guid.NewGuid().ToString()
+                 tạo id với 32 kí tự
+                 */
+
                 int id = QuaTrinhService.GetIdMax(pathQuaTrinh);
                 QuaTrinh quaTrinh = new QuaTrinh
                 {
@@ -82,6 +87,11 @@ namespace OnTap
                     this.Close();
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

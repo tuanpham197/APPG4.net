@@ -117,12 +117,15 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Trở về";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmAddQuaTrinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(426, 267);
+            this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.nudToYear);
