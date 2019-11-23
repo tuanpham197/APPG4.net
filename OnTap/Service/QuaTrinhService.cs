@@ -52,6 +52,10 @@ namespace OnTap.Service
                 return null;
             }
         }
+        public static List<QuaTrinh> getListQuaTrinhFromDB(string idSinhVien)
+        {
+            return new AppG4Context().quaTrinhs.Where(e => e.idStudent == idSinhVien).ToList();
+        }
         public static void Remove(string path,QuaTrinh quaTrinh)
         {
             if (File.Exists(path))

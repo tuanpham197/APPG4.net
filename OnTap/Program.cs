@@ -16,7 +16,7 @@ namespace OnTap
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1("15t1021201"));
+            Application.Run(new Form1("101"));
         }
     }
 }

@@ -41,6 +41,7 @@ namespace OnTap.Service
                     ID = item[0],
                     FirstName = item[1],
                     LastName = item[2],
+
                     DateOfBirth = DateTime.ParseExact(item[3], "yyyy-MM-dd", CultureInfo.InvariantCulture),
                     PlaceOfBirth = item[4],
                     Gender = item[5] == "Male" ? GENDER.Male : (item[5] == "Female" ? GENDER.Female : GENDER.Orther)
@@ -52,6 +53,11 @@ namespace OnTap.Service
                 }
             }
             return null;
+        }
+
+        public static SinhVien GetSinhVienFromDB(string idstudent)
+        {
+            return new AppG4Context().sinhViens.Where(e => e.ID == idstudent).FirstOrDefault();
         }
     }
 }

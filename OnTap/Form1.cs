@@ -43,8 +43,8 @@ namespace OnTap
         }
         public void loadData()
         {
-            sinhVien = StudentService.getSinhVienToFile(pathSinhVien, "101");
-
+            //sinhVien = StudentService.getSinhVienToFile(pathSinhVien, "101");
+            sinhVien = StudentService.GetSinhVienFromDB(idsv);
             txtMa.Text = sinhVien.ID;
             txtTen.Text = sinhVien.FullName;
             dtpNgaySinh.Value = sinhVien.DateOfBirth;
@@ -52,7 +52,8 @@ namespace OnTap
             txtNoiSinh.Text = sinhVien.PlaceOfBirth;
 
             //sinhVien.quaTrinh = QuaTrinhService.getListQuaTrinh("102");
-            sinhVien.quaTrinh = QuaTrinhService.getListQuaTrinh(pathQuaTrinh, sinhVien.ID);
+            //sinhVien.quaTrinh = QuaTrinhService.getListQuaTrinh(pathQuaTrinh, sinhVien.ID);
+            sinhVien.quaTrinh = QuaTrinhService.getListQuaTrinhFromDB(idsv);
             dgvQuaTrinh.AutoGenerateColumns = false;
             bdsQuaTrinh.DataSource = sinhVien.quaTrinh;
 
