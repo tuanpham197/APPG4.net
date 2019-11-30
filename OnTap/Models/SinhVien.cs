@@ -11,6 +11,8 @@ namespace OnTap.Models
     {
         [Key]
         public String ID { get; set; }
+        public String TenDangNhap { get; set; }
+        public String MatKhau { get; set; }
         public String FirstName { get; set; }
         public String LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
@@ -18,7 +20,7 @@ namespace OnTap.Models
         public String PlaceOfBirth { get; set; }
 
         public virtual ICollection<QuaTrinh> quaTrinh { get; set; }
-
+        public virtual ICollection<DanhBa> danhBas { get; set; }
         public String FullName
         {
             get

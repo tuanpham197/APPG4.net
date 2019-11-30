@@ -117,20 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
   </data>
-  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bgFormLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bgFormLogin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>

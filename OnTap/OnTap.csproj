@@ -74,6 +74,18 @@
     <Compile Include="frmDanhBa.Designer.cs">
       <DependentUpon>frmDanhBa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditContact.Designer.cs">
+      <DependentUpon>frmEditContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201911230747238_khoitaodb.cs" />
     <Compile Include="Migrations\201911230747238_khoitaodb.designer.cs">
       <DependentUpon>201911230747238_khoitaodb.cs</DependentUpon>
@@ -86,6 +98,10 @@
     <Compile Include="Migrations\201911230903096_createDanhBa.designer.cs">
       <DependentUpon>201911230903096_createDanhBa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911291324051_updateSV.cs" />
+    <Compile Include="Migrations\201911291324051_updateSV.designer.cs">
+      <DependentUpon>201911291324051_updateSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppG4Context.cs" />
     <Compile Include="Models\DanhBa.cs" />
@@ -93,6 +109,7 @@
     <Compile Include="Models\SinhVien.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\DanhBaService.cs" />
     <Compile Include="Service\QuaTrinhService.cs" />
     <Compile Include="Service\StudentService.cs" />
     <Compile Include="Utils.cs" />
@@ -105,6 +122,12 @@
     <EmbeddedResource Include="frmDanhBa.resx">
       <DependentUpon>frmDanhBa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEditContact.resx">
+      <DependentUpon>frmEditContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911230747238_khoitaodb.resx">
       <DependentUpon>201911230747238_khoitaodb.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911230903096_createDanhBa.resx">
       <DependentUpon>201911230903096_createDanhBa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911291324051_updateSV.resx">
+      <DependentUpon>201911291324051_updateSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -158,6 +184,7 @@
     <Content Include="Data\quatrinh.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\bgFormLogin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

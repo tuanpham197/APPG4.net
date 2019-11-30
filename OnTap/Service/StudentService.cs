@@ -59,5 +59,13 @@ namespace OnTap.Service
         {
             return new AppG4Context().sinhViens.Where(e => e.ID == idstudent).FirstOrDefault();
         }
+        public static SinhVien CheckLoginUser(String TenDangNhap,String MatKhau)
+        {
+            SinhVien sv = new AppG4Context().sinhViens.Where(e => e.TenDangNhap.Equals(TenDangNhap) && e.MatKhau.Equals(MatKhau)).FirstOrDefault();
+            if (sv != null)
+                return sv;
+            return null;
+        }
+        
     }
 }
